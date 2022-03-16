@@ -65,7 +65,7 @@ namespace Microsoft.Azure.Devices.Edge.Azure.Monitor
                     publisher = new IotHubMetricsUpload.IotHubMetricsUpload(moduleClientWrapper);
                 }
 
-                using (MetricsScrapeAndUpload metricsScrapeAndUpload = new MetricsScrapeAndUpload(scraper, publisher))
+                using (MetricsScrapeAndUpload metricsScrapeAndUpload = new MetricsScrapeAndUpload(scraper, publisher, additionalTags))
                 {
                     TimeSpan scrapeAndUploadInterval = TimeSpan.FromSeconds(Settings.Current.ScrapeFrequencySecs);
                     metricsScrapeAndUpload.Start(scrapeAndUploadInterval);
